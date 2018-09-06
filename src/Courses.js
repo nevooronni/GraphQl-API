@@ -1,6 +1,6 @@
 import React from 'react';
 import { Query } from 'react-apollo';
-import ggl from 'graphql-tag';
+import gql from 'graphql-tag';
 import Course from './Course';
 
 const Courses = () => (
@@ -22,8 +22,8 @@ const Courses = () => (
       if (loading) return <p>Loading...</p>;
       if (error) return <p>Error...</p>;
 
-      return data.allCourses.map(({id, title, author, description, topic, url }) => {
-        <Course course={currentCourse} />
+      return data.allCourses.map((currentCourse) => {
+        return <Course course={currentCourse} />
       });
     }}
     </Query> 
